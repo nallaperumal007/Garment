@@ -1,5 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../context/AppContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function MasterForm({ type }) {
   const { dispatch, state } = useContext(AppContext);
@@ -8,6 +10,7 @@ export default function MasterForm({ type }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({ type: `ADD_${type.toUpperCase()}`, payload: form });
+    toast.success(`${type} added successfully!`);
     setForm({});
   };
 
@@ -102,6 +105,7 @@ export default function MasterForm({ type }) {
           </button>
         </form>
       </div>
+      <ToastContainer position="top-right" autoClose={2000} />
     </div>
   );
 }
