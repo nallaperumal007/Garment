@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { AppProvider } from "./context/AppContext";
+import Masters from "./pages/Masters";
+import Orders from "./pages/Orders";
+// import SchedulerCalendar from "./components/SchedulerCalendar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppProvider>
+      <div style={{ padding: 20 }}>
+        <h2>Garment Order Scheduler</h2>
+        <Masters />
+        <Orders />
+        {/* <SchedulerCalendar /> */}
+      </div>
+    </AppProvider>
   );
 }
 
